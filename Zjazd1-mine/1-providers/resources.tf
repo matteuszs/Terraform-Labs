@@ -9,3 +9,11 @@ resource "azurerm_storage_account" "examplemssa" {
     environment = "staging"
   }
 }
+
+resource "azurerm_storage_account" "manualcreated" {
+  name                     = "manualcreated"
+  resource_group_name      = data.azurerm_resource_group.tf-st-rg14.name
+  location                 = "eastus"
+  account_tier             = "Standard"
+  account_replication_type = "RAGRS"
+}
